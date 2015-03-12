@@ -1,0 +1,1 @@
+!function(){console.log("addpdd d pdds")}(),function(){"use strict";var o="hren starting";console.log("layout"+o)}();
