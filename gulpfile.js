@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     stylus = require('gulp-stylus'),
     imagemin = require('gulp-imagemin'),
     uglify = require('gulp-uglify'),
+    jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     connect = require('gulp-connect');
 
@@ -28,6 +29,8 @@ gulp.task('stylus', function(){
 
 gulp.task('js', function(){
     gulp.src(['./assets/js/**/*.js', '!./assets/js/vendor/**/*.js'])
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(concat('app.js'))
         .pipe(uglify('app.js'))
         .pipe(gulp.dest('./public/js'))
